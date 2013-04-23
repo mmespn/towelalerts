@@ -100,7 +100,7 @@
         var adCampaign;
         if(sport == "nfl") {
             espn.gamecast.controller.showDriveChart();
-            adCampaign = new AdCampaign("whitecastle", {points: 5,plays:["T.Romo sacked at DAL 19 for -8 yards (R.Bernard).", "E.Manning sacked at NYG 44 for -15 yards (D.Ware).", "(Shotgun) E.Manning sacked at NYG 24 for -6 yards (D.Ware).", "(Shotgun) T.Romo sacked at NYG 15 for -9 yards (L.Joseph).", "(Shotgun) E.Manning sacked at NYG 39 for -5 yards (J.Hatcher)."]});
+            adCampaign = new AdCampaign("whitecastle", {points: 5,plays:["Colin Kaepernick sacked by Paul Kruger for a loss of 10 yards to the BALTIMORE 18.", "Joe Flacco sacked by Ray McDonald for a loss of 5 yards to the SANFRNCSCO 42.", "Colin Kaepernick sacked by Paul Kruger for a loss of zero to the BALTIMORE 9.", "Colin Kaepernick sacked by Arthur Jones for a loss of 6 yards to the SANFRNCSCO 40.", "Joe Flacco sacked by Ahmad Brooks for a loss of 8 yards to the BALTIMORE 9."]});
         }
         else if(sport == "mlb") { 
             espn.gamecast.controller.showFieldFrame();
