@@ -87,7 +87,7 @@
         },
         setPoints: function(points) {
             adPoints.html(points);
-        },
+        }
 
     };
 
@@ -149,7 +149,7 @@
                     {
                         points: 5, 
                         imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", 
-                        plays:["Jeff Green blocks Chris Copeland's three point jumper","Kenyon Martin blocks Jason Terry 's 2-foot layup", "Raymond Felton blocks Avery Bradley 's 18-foot jumper", "Kevin Garnett blocks Raymond Felton's layup", "J.R. Smith blocks Avery Bradley 's 7-foot two point shot."]
+                        plays:["Jeff Green blocks Chris Copeland's three point jumper","Kenyon Martin blocks Jason Terry 's 2-foot layup", "Raymond Felton blocks Avery Bradley 's 18-foot jumper", "Kevin Garnett blocks Raymond Felton's layup", "J.R. Smith blocks Avery Bradley 's 7-foot two point shot."],
                         reward: "Buy 1 stuffed crust pizza get 1 free"
                     }
             );
