@@ -1,14 +1,21 @@
 #main-controls { overflow: visible; }
 #hackathon-ad-container {
     background: red;
-    z-index: 2;
+    z-index: 1002;
     display: block;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 30px;
     padding: 0;
+	height: 30px;
+}
+
+#hackathon-ad-slider {
+	height: 200px;
+    background: red;
+    z-index: 1003;
+    display: none;
 }
 
 #hackathon-admin-panel {

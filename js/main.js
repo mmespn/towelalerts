@@ -1,6 +1,9 @@
 (function($, hackGlobals) {
 
-    var sport = hackGlobals.sport;
+    var sport = hackGlobals.sport,
+        adContainer = $('#hackathon-ad-container'),
+        adSlider = $('#hackathon-ad-slider'),
+        adPoints = $('#adPoints');
 
     FanPointBank = function(userSwid, storage) {
         this.userSwid = userSwid;
@@ -64,23 +67,39 @@
         },
         setPoints: function(points) {
             this.bank.setPoints(this.adCampaign.getId());
-        },
-        getHTML: function() {
-            return "<div class='hackathon-ad'>You have " + this.getPoints() + " of " + this.getPointsRequired() + " points</div>";
-        },
-        render: function(containerNode) {
-            $(containerNode).html(this.getHTML());   
         }
+    };
+
+    function AdContainer() {
+    }
+    AdContainer.prototype = {
+        renderPlay: function(hText, hImg) {
+            var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>";
+
+            adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + "</div>");
+            this.show();
+        },
+        show: function() {
+            adSlider.slideDown('slow');
+        },
+        hide: function() {
+            adSlider.slideUp('slow');
+        },
+        setPoints: function(points) {
+            adPoints.html(points);
+        },
 
     };
 
-    function HackathonController(userAdCampaign) {
+    function AdController(userAdCampaign) {
         this.userAdCampaign = userAdCampaign;
+        this.adContainer = new AdContainer();
     }
-    HackathonController.prototype = {
+    AdController.prototype = {
         
         renderAd: function() {
-            this.userAdCampaign.render($("#hackathon-ad-container"));
+            this.adContainer.setPoints(this.userAdCampaign.getPoints());
+            this.adContainer.hide();
         },
 
         addPoint: function() {
@@ -91,6 +110,9 @@
         setPoints: function(points) {
             this.userAdCampaign.setPoints(points || 0);
             this.renderAd();
+        },
+        triggerPlay: function() {
+            this.adContainer.renderPlay('Home run', 'http://www.barewalls.com/i/c/594102_Home-Run.jpg');
         }
 
     };
@@ -137,13 +159,12 @@
             var userSwid = "abcde";
             var bank = new FanPointBank(userSwid, espn.storage);
             var userAdCampaign = new UserAdCampaign(bank, adCampaign);
-            window.HackathonController = new HackathonController(userAdCampaign);
+            window.HackathonController = new AdController(userAdCampaign);
             window.HackathonController.renderAd();
         }
 
     }
+
     $(document).ready(init);
-    //espn.gamecast.subscribe("ready", init);
-           
 
 })(jQuery, ESPN_HACKATHON_GLOBALS || {});
