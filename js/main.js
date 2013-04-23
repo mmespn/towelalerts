@@ -1,6 +1,8 @@
 (function($, hackGlobals) {
 
-    var sport = hackGlobals.sport;
+    var sport = hackGlobals.sport,
+        adContainer = $('#hackathon-ad-container'),
+        adSlider = $('#hackathon-ad-slider');
 
     FanPointBank = function(userSwid, storage) {
         this.userSwid = userSwid;
@@ -119,9 +121,17 @@
             window.HackathonController.renderAd();
         }
 
+<<<<<<< HEAD
     }
     $(document).ready(init);
     //espn.gamecast.subscribe("ready", init);
            
+=======
+        adContainer.click(function() {
+            adSlider.slideToggle('slow');
+        });
+
+    });
+>>>>>>> Minor changes
 
 })(jQuery, ESPN_HACKATHON_GLOBALS || {});
