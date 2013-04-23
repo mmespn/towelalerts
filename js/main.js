@@ -100,15 +100,15 @@
         var adCampaign;
         if(sport == "nfl") {
             espn.gamecast.controller.showDriveChart();
-            adCampaign = new AdCampaign("whitecastle", {points: 5,plays:["Colin Kaepernick sacked by Paul Kruger for a loss of 10 yards to the BALTIMORE 18.", "Joe Flacco sacked by Ray McDonald for a loss of 5 yards to the SANFRNCSCO 42.", "Colin Kaepernick sacked by Paul Kruger for a loss of zero to the BALTIMORE 9.", "Colin Kaepernick sacked by Arthur Jones for a loss of 6 yards to the SANFRNCSCO 40.", "Joe Flacco sacked by Ahmad Brooks for a loss of 8 yards to the BALTIMORE 9."]});
+            adCampaign = new AdCampaign("whitecastle", {points: 5, imageLarge: "http://api.ning.com/files/IZVpEDlfz9OkN*4PI3CTqBZR4QVvCfUjMui18AUwnkkm85RMdvyPgzV3PyZNUMJICo-yEOLmCR32i0hWGuqlVLVyznwiF8Wa/whitecastlelogo.jpg", plays:["Colin Kaepernick sacked by Paul Kruger for a loss of 10 yards to the BALTIMORE 18.", "Joe Flacco sacked by Ray McDonald for a loss of 5 yards to the SANFRNCSCO 42.", "Colin Kaepernick sacked by Paul Kruger for a loss of zero to the BALTIMORE 9.", "Colin Kaepernick sacked by Arthur Jones for a loss of 6 yards to the SANFRNCSCO 40.", "Joe Flacco sacked by Ahmad Brooks for a loss of 8 yards to the BALTIMORE 9."]});
         }
         else if(sport == "mlb") { 
             espn.gamecast.controller.showFieldFrame();
-            adCampaign = new AdCampaign("homedepot", {points: 5, plays:["R Cano homered to left (369 feet).", "J Arencibia homered to center (434 feet), A Lind scored.", "T Hafner homered to left (370 feet).", "V Wells homered to left.", "C Rasmus homered to center, A Lind scored."]});
+            adCampaign = new AdCampaign("homedepot", {points: 5, imageLarge: "http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0018/4102/brand.gif", plays:["R Cano homered to left (369 feet).", "J Arencibia homered to center (434 feet), A Lind scored.", "T Hafner homered to left (370 feet).", "V Wells homered to left.", "C Rasmus homered to center, A Lind scored."]});
         }
         else if(sport == "nba") {
             espn.gamecast.mainControls.toggleView($("#main-controls a.game-action").get(0));
-            adCampaign = new AdCampaign("dominospizza", {points: 5, plays:["Jeff Green blocks Chris Copeland's three point jumper","Kenyon Martin blocks Jason Terry 's 2-foot layup", "Raymond Felton blocks Avery Bradley 's 18-foot jumper", "Kevin Garnett blocks Raymond Felton's layup", "J.R. Smith blocks Avery Bradley 's 7-foot two point shot."]});
+            adCampaign = new AdCampaign("dominospizza", {points: 5, imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", plays:["Jeff Green blocks Chris Copeland's three point jumper","Kenyon Martin blocks Jason Terry 's 2-foot layup", "Raymond Felton blocks Avery Bradley 's 18-foot jumper", "Kevin Garnett blocks Raymond Felton's layup", "J.R. Smith blocks Avery Bradley 's 7-foot two point shot."]});
         }
 
         if(adCampaign) {
