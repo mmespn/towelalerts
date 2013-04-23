@@ -299,6 +299,7 @@
 <div id="hackathon-admin-panel">
     <ol>
         <li><button onclick='HackathonController.triggerPlay();return false;'>Trigger Play</button></li>
+		<li><label><input type='text' value='0'/><button onclick='HackathonController.setPoints(jQuery(this).prev().val());return false;'>Set Points</button></label></li>
     </ol>
 </div>
 

@@ -21,7 +21,7 @@
         },
 
         getPoints: function(campaignId) {
-            return this.getStoredVal("points."+campaignId) || 0;
+            return parseInt(this.getStoredVal("points."+campaignId), 10) || 0;
         },
         setPoints: function(campaignId, points) {
             this.setStoredVal("points."+campaignId, points);
@@ -45,7 +45,13 @@
         },
         pointsMeetGoal: function(points) {
             return points >= this.getPointsRequired();
-        }
+		},
+		getGraphic: function() {
+			return this.data.imageLarge;
+		},
+		getRewardText: function() {
+			return this.data.reward;
+		}
     };
 
     function UserAdCampaign(bank, adCampaign) {
@@ -66,8 +72,14 @@
             this.bank.addPoint(this.adCampaign.getId());
         },
         setPoints: function(points) {
-            this.bank.setPoints(this.adCampaign.getId());
-        }
+            this.bank.setPoints(this.adCampaign.getId(), points);
+		},
+		getGraphic: function() {
+			return this.adCampaign.getGraphic();
+		},
+		getRewardText: function() {
+			return this.adCampaign.getRewardText();
+		}
     };
 
     function AdContainer() {
@@ -75,10 +87,13 @@
     AdContainer.prototype = {
         renderPlay: function(hText, hImg) {
             var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>";
-
             adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + "</div>");
             this.show();
         },
+		renderGoalMet: function(rewardText) {
+            adSlider.html("<div class='hackathon-ad'>Reward! " + rewardText + "</div>");
+            this.show();
+		},
         show: function() {
             adSlider.slideDown('slow');
         },
@@ -91,76 +106,101 @@
 
     };
 
-    function AdController(userAdCampaign) {
+    function AdController(userAdCampaign, plays) {
         this.userAdCampaign = userAdCampaign;
         this.adContainer = new AdContainer();
+		this.plays = plays;
     }
     AdController.prototype = {
         
-        renderAd: function() {
-            this.adContainer.setPoints(this.userAdCampaign.getPoints());
-            this.adContainer.hide();
-        },
-
         addPoint: function() {
             this.userAdCampaign.addPoint(); 
-            this.renderAd();
+			this.adContainer.setPoints(this.userAdCampaign.getPoints());
+			if(this.userAdCampaign.hasMetGoal()) {
+				this.adContainer.renderGoalMet(this.userAdCampaign.getRewardText());
+			}
+			else {
+				this.adContainer.hide();
+			}
         },
 
         setPoints: function(points) {
+			console.log("set points called", points);
             this.userAdCampaign.setPoints(points || 0);
-            this.renderAd();
+			this.adContainer.setPoints(this.userAdCampaign.getPoints());
+			if(this.userAdCampaign.hasMetGoal()) {
+				this.adContainer.renderGoalMet(this.userAdCampaign.getRewardText());
+			}
         },
+
         triggerPlay: function() {
-            this.adContainer.renderPlay('Home run', 'http://www.barewalls.com/i/c/594102_Home-Run.jpg');
+			var playText = this.plays.shift();
+            this.adContainer.renderPlay(playText, this.userAdCampaign.getGraphic());
+			this.plays.push(playText);
         }
 
     };
 
 
     function init() {
-        var adCampaign;
+		var adCampaign,
+			plays = [],
+			userSwid = "abcde",
+			bank,
+			userAdCampaign;
+
         if(sport == "nfl") {
             espn.gamecast.controller.showDriveChart();
-            adCampaign = new AdCampaign("whitecastle", 
-                    {
-                        points: 5, 
-                        imageLarge: "http://api.ning.com/files/IZVpEDlfz9OkN*4PI3CTqBZR4QVvCfUjMui18AUwnkkm85RMdvyPgzV3PyZNUMJICo-yEOLmCR32i0hWGuqlVLVyznwiF8Wa/whitecastlelogo.jpg", 
-                        plays:["Colin Kaepernick sacked by Paul Kruger for a loss of 10 yards to the BALTIMORE 18.", "Joe Flacco sacked by Ray McDonald for a loss of 5 yards to the SANFRNCSCO 42.", "Colin Kaepernick sacked by Paul Kruger for a loss of zero to the BALTIMORE 9.", "Colin Kaepernick sacked by Arthur Jones for a loss of 6 yards to the SANFRNCSCO 40.", "Joe Flacco sacked by Ahmad Brooks for a loss of 8 yards to the BALTIMORE 9."],
-                        reward: "50% off a sack of 10"
-                    
-                    }
-            );
+            adCampaign = new AdCampaign("whitecastle", {
+				points: 5, 
+				imageLarge: "http://api.ning.com/files/IZVpEDlfz9OkN*4PI3CTqBZR4QVvCfUjMui18AUwnkkm85RMdvyPgzV3PyZNUMJICo-yEOLmCR32i0hWGuqlVLVyznwiF8Wa/whitecastlelogo.jpg", 
+				reward: "50% off a sack of 10"
+			
+			});
+			plays = [
+				"Colin Kaepernick sacked by Paul Kruger for a loss of 10 yards to the BALTIMORE 18.", 
+				"Joe Flacco sacked by Ray McDonald for a loss of 5 yards to the SANFRNCSCO 42.", 
+				"Colin Kaepernick sacked by Paul Kruger for a loss of zero to the BALTIMORE 9.", 
+				"Colin Kaepernick sacked by Arthur Jones for a loss of 6 yards to the SANFRNCSCO 40.", 
+				"Joe Flacco sacked by Ahmad Brooks for a loss of 8 yards to the BALTIMORE 9."
+			];
         }
         else if(sport == "mlb") { 
             espn.gamecast.controller.showFieldFrame();
-            adCampaign = new AdCampaign("homedepot", 
-                    {
-                        points: 5, 
-                        imageLarge: "http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0018/4102/brand.gif", 
-                        plays:["R Cano homered to left (369 feet).", "J Arencibia homered to center (434 feet), A Lind scored.", "T Hafner homered to left (370 feet).", "V Wells homered to left.", "C Rasmus homered to center, A Lind scored."],
-                        reward: "5% off your order"
-                    }
-            );
+            adCampaign = new AdCampaign("homedepot", {
+				points: 5, 
+				imageLarge: "http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0018/4102/brand.gif", 
+				reward: "5% off your order"
+			});
+			plays = [
+				"R Cano homered to left (369 feet).", 
+				"J Arencibia homered to center (434 feet), A Lind scored.", 
+				"T Hafner homered to left (370 feet).", 
+				"V Wells homered to left.", 
+				"C Rasmus homered to center, A Lind scored."
+			];
         }
         else if(sport == "nba") {
             espn.gamecast.mainControls.toggleView($("#main-controls a.game-action").get(0));
-            adCampaign = new AdCampaign("dominospizza", 
-                    {
-                        points: 5, 
-                        imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", 
-                        plays:["Jeff Green blocks Chris Copeland's three point jumper","Kenyon Martin blocks Jason Terry 's 2-foot layup", "Raymond Felton blocks Avery Bradley 's 18-foot jumper", "Kevin Garnett blocks Raymond Felton's layup", "J.R. Smith blocks Avery Bradley 's 7-foot two point shot."],
-                        reward: "Buy 1 stuffed crust pizza get 1 free"
-                    }
-            );
+            adCampaign = new AdCampaign("dominospizza", {
+				points: 5, 
+				imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", 
+				reward: "Buy 1 stuffed crust pizza get 1 free"
+			});
+			plays = [
+				"Jeff Green blocks Chris Copeland's three point jumper",
+				"Kenyon Martin blocks Jason Terry 's 2-foot layup", 
+				"Raymond Felton blocks Avery Bradley 's 18-foot jumper", 
+				"Kevin Garnett blocks Raymond Felton's layup", 
+				"J.R. Smith blocks Avery Bradley 's 7-foot two point shot."
+			];
         }
 
         if(adCampaign) {
-            var userSwid = "abcde";
-            var bank = new FanPointBank(userSwid, espn.storage);
-            var userAdCampaign = new UserAdCampaign(bank, adCampaign);
-            window.HackathonController = new AdController(userAdCampaign);
-            window.HackathonController.renderAd();
+            bank = new FanPointBank(userSwid, espn.storage);
+            userAdCampaign = new UserAdCampaign(bank, adCampaign);
+            window.HackathonController = new AdController(userAdCampaign, plays);
+			window.HackathonController.setPoints(userAdCampaign.getPoints());
         }
 
     }
