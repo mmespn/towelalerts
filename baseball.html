@@ -297,9 +297,10 @@
 
 
 <div id="hackathon-admin-panel">
+	<div class='heading'>Admin Panel</div>
     <ol>
-        <li><button onclick='HackathonController.triggerPlay();return false;'>Trigger Play</button></li>
-		<li><label><input type='text' value='0'/><button onclick='HackathonController.setPoints(jQuery(this).prev().val());return false;'>Set Points</button></label></li>
+        <li><button class="button" onclick='HackathonController.triggerPlay();return false;'>Trigger Play</button></li>
+		<li><label class="inputcombo"><input type='text' class="textinput" value='0'/><button class="button" onclick='HackathonController.setPoints(jQuery(this).prev().val());return false;'>Set Points</button></label></li>
     </ol>
 </div>
 
