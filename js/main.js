@@ -100,15 +100,15 @@
         var adCampaign;
         if(sport == "nfl") {
             espn.gamecast.controller.showDriveChart();
-            adCampaign = new AdCampaign("whitecastle", {points: 5});
+            adCampaign = new AdCampaign("whitecastle", {points: 5,plays:["T.Romo sacked at DAL 19 for -8 yards (R.Bernard).", "E.Manning sacked at NYG 44 for -15 yards (D.Ware).", "(Shotgun) E.Manning sacked at NYG 24 for -6 yards (D.Ware).", "(Shotgun) T.Romo sacked at NYG 15 for -9 yards (L.Joseph).", "(Shotgun) E.Manning sacked at NYG 39 for -5 yards (J.Hatcher)."]});
         }
         else if(sport == "mlb") { 
             espn.gamecast.controller.showFieldFrame();
-            adCampaign = new AdCampaign("homedepot", {points: 5});
+            adCampaign = new AdCampaign("homedepot", {points: 5, plays:["R Cano homered to left (369 feet).", "J Arencibia homered to center (434 feet), A Lind scored.", "T Hafner homered to left (370 feet).", "V Wells homered to left.", "C Rasmus homered to center, A Lind scored."]});
         }
         else if(sport == "nba") {
             espn.gamecast.mainControls.toggleView($("#main-controls a.game-action").get(0));
-            adCampaign = new AdCampaign("dominospizza", {points: 5});
+            adCampaign = new AdCampaign("dominospizza", {points: 5, plays:["Jeff Green blocks Chris Copeland's three point jumper","Kenyon Martin blocks Jason Terry 's 2-foot layup", "Raymond Felton blocks Avery Bradley 's 18-foot jumper", "Kevin Garnett blocks Raymond Felton's layup", "J.R. Smith blocks Avery Bradley 's 7-foot two point shot."]});
         }
 
         if(adCampaign) {
