@@ -45,7 +45,7 @@
     display: none;
     clear: both;
     padding: 0;
-    width: 594px;
+    width: 100%;
 
 }
 .hackathon-ad-basketball #hackathon-ad-slider {
@@ -153,6 +153,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0502', end
     font-size:10px;
  
 }
+/* hide the current points content when the ad is expanded */
+#hackathon-ad-container.expanded #adCurrentText,
+#hackathon-ad-container.expanded #adPoints {
+    display: none;
+}
+
 .hackathon-ad-baseball #adCurrentText{
     font-weight:800;
     color:#000000;
