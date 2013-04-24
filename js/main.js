@@ -55,6 +55,9 @@
 		},
         getTitle: function(){
             return this.data.title;
+        },
+        getInfo: function(){
+            return this.data.info;
         }
     };
 
@@ -86,6 +89,9 @@
 		},
         getTitle: function(){
             return this.adCampaign.getTitle();
+        },
+        getInfo: function(){
+            return this.adCampaign.getInfo();
         }
     };
 
@@ -98,11 +104,11 @@
 				this.hideTimeout = null;
 			}
 		},
-        renderPlay: function(hText, hImg) {
+        renderPlay: function(hText, hImg, info) {
             var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>",
                 timerSecs = 7,
                 timer = "<p class='ad-timercontainer'>Time is running out to capture: <span class='timer'>" + timerSecs + "</span></p>";
-            adSlider.html("<div class='hackathon-ad'><img src=" + hImg + ' width=100>' + hText +  ' ' + link + " " + timer + "</div>");
+            adSlider.html("<div class='hackathon-ad'><img src=" + hImg + ' width=100>' + hText +  ' ' + link + " " + info + ' ' + timer + "</div>");
             // http://keith-wood.name/countdown.html#formats1
             adSlider.find('.timer').countdown({format:"{sn}", compact:true, until: new Date(new Date().getTime() + timerSecs*1000)});
             this.show();
@@ -160,7 +166,7 @@
 
         triggerPlay: function() {
 			var playText = this.plays.shift();
-            this.adContainer.renderPlay(playText, this.userAdCampaign.getGraphic());
+            this.adContainer.renderPlay(playText, this.userAdCampaign.getGraphic(), this.userAdCampaign.getInfo());
 			this.plays.push(playText);
         },
 
