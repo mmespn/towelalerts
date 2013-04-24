@@ -92,15 +92,22 @@
     function AdContainer() {
     }
     AdContainer.prototype = {
+		cancelPendingHide: function() {
+			if(this.hideTimeout) {
+				clearTimeout(this.hideTimeout);
+				this.hideTimeout = null;
+			}
+		},
         renderPlay: function(hText, hImg) {
             var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>";
             adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + "</div>");
             this.show();
-
-            setTimeout(function(obj) { obj.hide(); }, 7000, this);
+			this.cancelPendingHide();
+            this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, 7000, this);
         },
 		renderGoalMet: function(rewardText) {
             adSlider.html("<div class='hackathon-ad'>Reward! " + rewardText + "</div>");
+			this.cancelPendingHide();
             this.show();
 		},
         show: function() {
