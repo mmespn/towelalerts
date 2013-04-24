@@ -3,6 +3,7 @@
     var sport = hackGlobals.sport,
         adContainer = $('#hackathon-ad-container'),
         adSlider = $('#hackathon-ad-slider'),
+        adTitle = $('#hackathon-ad-title'),
         adPoints = $('#adPoints');
 
     FanPointBank = function(userSwid, storage) {
@@ -51,7 +52,10 @@
 		},
 		getRewardText: function() {
 			return this.data.reward;
-		}
+		},
+        getTitle: function(){
+            return this.data.title;
+        }
     };
 
     function UserAdCampaign(bank, adCampaign) {
@@ -79,7 +83,10 @@
 		},
 		getRewardText: function() {
 			return this.adCampaign.getRewardText();
-		}
+		},
+        getTitle: function(){
+            return this.adCampaign.getTitle();
+        }
     };
 
     function AdContainer() {
@@ -104,6 +111,9 @@
         },
         setPoints: function(points) {
             adPoints.html(points);
+        },
+        setTitle: function( title ){
+            adTitle.html( title )
         }
 
     };
@@ -139,6 +149,10 @@
 			var playText = this.plays.shift();
             this.adContainer.renderPlay(playText, this.userAdCampaign.getGraphic());
 			this.plays.push(playText);
+        },
+
+        setTitle: function(){
+            this.adContainer.setTitle( this.userAdCampaign.getTitle() )
         }
 
     };
@@ -154,6 +168,7 @@
         if(sport == "nfl") {
             espn.gamecast.controller.showDriveChart();
             adCampaign = new AdCampaign("whitecastle", {
+                title: "Sacks",
 				points: 5, 
 				imageLarge: "http://api.ning.com/files/IZVpEDlfz9OkN*4PI3CTqBZR4QVvCfUjMui18AUwnkkm85RMdvyPgzV3PyZNUMJICo-yEOLmCR32i0hWGuqlVLVyznwiF8Wa/whitecastlelogo.jpg", 
 				reward: "50% off a sack of 10"
@@ -170,6 +185,7 @@
         else if(sport == "mlb") { 
             espn.gamecast.controller.showFieldFrame();
             adCampaign = new AdCampaign("homedepot", {
+                title: "Home Runs",
 				points: 5, 
 				imageLarge: "http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0018/4102/brand.gif", 
 				reward: "5% off your order"
@@ -185,6 +201,7 @@
         else if(sport == "nba") {
             espn.gamecast.mainControls.toggleView($("#main-controls a.game-action").get(0));
             adCampaign = new AdCampaign("dominospizza", {
+                title: "Dunks",
 				points: 5, 
 				imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", 
 				reward: "Buy 1 stuffed crust pizza get 1 free"
@@ -203,6 +220,7 @@
             userAdCampaign = new UserAdCampaign(bank, adCampaign);
             window.HackathonController = new AdController(userAdCampaign, plays);
 			window.HackathonController.setPoints(userAdCampaign.getPoints());
+            window.HackathonController.setTitle(userAdCampaign.getTitle());
         }
 
     }
