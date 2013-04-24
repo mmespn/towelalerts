@@ -113,7 +113,7 @@
             adSlider.find('.timer').countdown({format:"{sn}", compact:true, until: new Date(new Date().getTime() + timerSecs*1000)});
             this.show();
 			this.cancelPendingHide();
-            //this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, timerSecs*1000, this);
+            this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, timerSecs*1000, this);
         },
 		renderGoalMet: function(rewardText) {
             adSlider.html("<div class='hackathon-ad'>Reward! " + rewardText + "</div>");
