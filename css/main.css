@@ -97,7 +97,7 @@
 }
  
 #hackathon-ad-title{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     position: absolute;
     left: 8%;
@@ -143,10 +143,7 @@
     color: #1C7E4B;
     display: inline;
     float: right;
-    font-size: 18px;
-    font-weight: bold;
-    position: absolute;
-    right: 1%;
-    top: 10%;
-        width:30px;
+    font-size:16px;
+    padding:3px;
+    width:45px;
 }
