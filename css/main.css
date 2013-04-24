@@ -69,8 +69,8 @@
 }
  
 #hackathon-ad-slider {
-    height: 125px;
     text-align: left;
+    height: 150px;
     position: absolute;
     top: 30px;
     background: #fff;
