@@ -102,7 +102,7 @@
             var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>",
                 timerSecs = 7,
                 timer = "<p class='ad-timercontainer'>Time is running out to capture: <span class='timer'>" + timerSecs + "</span></p>";
-            adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + " " + timer + "</div>");
+            adSlider.html("<div class='hackathon-ad'><img src=" + hImg + ' width=100>' + hText +  ' ' + link + " " + timer + "</div>");
             // http://keith-wood.name/countdown.html#formats1
             adSlider.find('.timer').countdown({format:"{sn}", compact:true, until: new Date(new Date().getTime() + timerSecs*1000)});
             this.show();
@@ -205,7 +205,8 @@
                 title: "Home Runs brought to you by Home Depot",
 				points: 5, 
 				imageLarge: "http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0018/4102/brand.gif", 
-				reward: "5% off your order"
+				reward: "5% off your order",
+                info: "Claim 5 home runs and receive 5% off of your next order"
 			});
 			plays = [
 				"R Cano homered to left (369 feet).", 
@@ -218,10 +219,11 @@
         else if(sport == "nba") {
             espn.gamecast.mainControls.toggleView($("#main-controls a.game-action").get(0));
             adCampaign = new AdCampaign("dominospizza", {
-                title: "Blocks brought to you by Domino's",
+                title: "Blocks brought to you by Pizza Hut",
 				points: 5, 
-				imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", 
-				reward: "Buy 1 stuffed crust pizza get 1 free"
+				imageLarge: "http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0002/2776/brand.gif", 
+				reward: "Buy 1 stuffed crust pizza get 1 free",
+                info: "Claim 5 blocks and get a coupon for buy 1 pizza get 1 free"
 			});
 			plays = [
 				"Jeff Green blocks Chris Copeland's three point jumper",
