@@ -168,7 +168,7 @@
         if(sport == "nfl") {
             espn.gamecast.controller.showDriveChart();
             adCampaign = new AdCampaign("whitecastle", {
-                title: "Sacks",
+                title: "Sacks brought to you by White Castle",
 				points: 5, 
 				imageLarge: "http://api.ning.com/files/IZVpEDlfz9OkN*4PI3CTqBZR4QVvCfUjMui18AUwnkkm85RMdvyPgzV3PyZNUMJICo-yEOLmCR32i0hWGuqlVLVyznwiF8Wa/whitecastlelogo.jpg", 
 				reward: "50% off a sack of 10"
@@ -185,7 +185,7 @@
         else if(sport == "mlb") { 
             espn.gamecast.controller.showFieldFrame();
             adCampaign = new AdCampaign("homedepot", {
-                title: "Home Runs",
+                title: "Home Runs brought to you by Home Depot",
 				points: 5, 
 				imageLarge: "http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0018/4102/brand.gif", 
 				reward: "5% off your order"
@@ -201,7 +201,7 @@
         else if(sport == "nba") {
             espn.gamecast.mainControls.toggleView($("#main-controls a.game-action").get(0));
             adCampaign = new AdCampaign("dominospizza", {
-                title: "Dunks",
+                title: "Dunks brought to you by Domino's",
 				points: 5, 
 				imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", 
 				reward: "Buy 1 stuffed crust pizza get 1 free"
