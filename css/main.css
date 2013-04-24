@@ -27,11 +27,23 @@
     display: block;
 }
 
+.ad-timercontainer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    text-align: right compact:true,;
+}
+
 #hackathon-ad-slider {
 	height: 200px;
     background: red;
     z-index: 1003;
     display: none;
+}
+.hackathon-ad {
+    height: 100%;
+    position: relative;
 }
 
 #hackathon-admin-panel {

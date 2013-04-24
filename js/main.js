@@ -99,11 +99,15 @@
 			}
 		},
         renderPlay: function(hText, hImg) {
-            var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>";
-            adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + "</div>");
+            var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>",
+                timerSecs = 7,
+                timer = "<p class='ad-timercontainer'>Time is running out to capture: <span class='timer'>" + timerSecs + "</span></p>";
+            adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + " " + timer + "</div>");
+            // http://keith-wood.name/countdown.html#formats1
+            adSlider.find('.timer').countdown({format:"{sn}", compact:true, until: new Date(new Date().getTime() + timerSecs*1000)});
             this.show();
 			this.cancelPendingHide();
-            this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, 7000, this);
+            this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, timerSecs*1000, this);
         },
 		renderGoalMet: function(rewardText) {
             adSlider.html("<div class='hackathon-ad'>Reward! " + rewardText + "</div>");
@@ -122,7 +126,7 @@
             adPoints.html(points);
         },
         setTitle: function( title ){
-            adTitle.html( title )
+            adTitle.html( title );
         }
 
     };
@@ -161,7 +165,7 @@
         },
 
         setTitle: function(){
-            this.adContainer.setTitle( this.userAdCampaign.getTitle() )
+            this.adContainer.setTitle( this.userAdCampaign.getTitle() );
         },
 
         collapseAd: function() {
