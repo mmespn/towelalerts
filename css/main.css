@@ -10,6 +10,22 @@
     padding: 0;
 	height: 30px;
 }
+#hackathon-ad-container .closebutton {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    background: #FFF;
+    border: 2px solid #222;
+    text-align: center;
+}
+#hackathon-ad-container.expanded .closebutton {
+    display: block;
+}
 
 #hackathon-ad-slider {
 	height: 200px;

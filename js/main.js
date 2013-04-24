@@ -112,9 +112,11 @@
 		},
         show: function() {
             adSlider.slideDown('slow');
+            adContainer.addClass("expanded");
         },
         hide: function() {
             adSlider.slideUp('slow');
+            adContainer.removeClass("expanded");
         },
         setPoints: function(points) {
             adPoints.html(points);
@@ -160,6 +162,10 @@
 
         setTitle: function(){
             this.adContainer.setTitle( this.userAdCampaign.getTitle() )
+        },
+
+        collapseAd: function() {
+            this.adContainer.hide();
         }
 
     };
