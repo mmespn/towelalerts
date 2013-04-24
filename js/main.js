@@ -89,6 +89,8 @@
             var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>";
             adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + "</div>");
             this.show();
+
+            setTimeout(function(obj) { obj.hide(); }, 7000, this);
         },
 		renderGoalMet: function(rewardText) {
             adSlider.html("<div class='hackathon-ad'>Reward! " + rewardText + "</div>");
