@@ -100,7 +100,7 @@
     font-size: 14px;
     font-weight: bold;
     position: absolute;
-    left: 20%;
+    left: 8%;
     bottom: 25%;
 }
  
@@ -120,6 +120,10 @@
     background: -ms-linear-gradient(top, #6d0502 0%,#7c0602 47%,#7c0602 100%); /* IE10+ */
     background: linear-gradient(to bottom, #6d0502 0%,#7c0602 47%,#7c0602 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0502', endColorstr='#7c0602',GradientType=0 ); /* IE6-9 */
+}
+
+.hackathon-ad-basketball #hackathon-ad-title{
+    left: 20%;
 }
 
  #adCurrentText{

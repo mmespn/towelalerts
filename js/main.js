@@ -218,7 +218,7 @@
         else if(sport == "nba") {
             espn.gamecast.mainControls.toggleView($("#main-controls a.game-action").get(0));
             adCampaign = new AdCampaign("dominospizza", {
-                title: "Dunks brought to you by Domino's",
+                title: "Blocks brought to you by Domino's",
 				points: 5, 
 				imageLarge: "http://www.contactcenterworld.com/images/company/dominos-pizza-largex3-logo.jpg", 
 				reward: "Buy 1 stuffed crust pizza get 1 free"
