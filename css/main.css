@@ -108,7 +108,9 @@
     display: inline;
     float: left;
 }
- 
+ .hackathon-ad-baseball {
+    background: #eb8015; /* Old browsers */
+}
 .hackathon-ad-basketball {
     background: #6d0502; /* Old browsers */
     background: -moz-linear-gradient(top, #6d0502 0%, #7c0602 47%, #7c0602 100%); /* FF3.6+ */
@@ -119,10 +121,25 @@
     background: linear-gradient(to bottom, #6d0502 0%,#7c0602 47%,#7c0602 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0502', endColorstr='#7c0602',GradientType=0 ); /* IE6-9 */
 }
+
+ #adCurrentText{
+
+    color: #FFFFFF;
+    padding:9px 5px 0 0;
+    float: right;
+    font-size:10px;
  
+}
+.hackathon-ad-baseball #adCurrentText{
+    font-weight:800;
+    color:#000000;
+}
 #adPoints{
     background: #FFFFFF;
     color: #1C7E4B;
     display: inline;
     float: right;
+    font-size:16px;
+    padding:3px;
+    width:45px;
 }
