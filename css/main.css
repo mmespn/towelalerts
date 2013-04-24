@@ -7,7 +7,7 @@
     top: 0;
     width: 100%;
     padding: 0;
-                height: 30px;
+    height: 30px;
 }
 #hackathon-ad-container .closebutton {
     display: none;
@@ -35,10 +35,21 @@
 }
  
 #hackathon-ad-slider {
-                height: 200px;
-    background: red;
+    height: 100px;
+    position: absolute;
+    top: 30px;
+    background: #fff;
+    color: #000;
     z-index: 1003;
     display: none;
+    clear: both;
+    padding: 0;
+    width: 594px;
+
+}
+.hackathon-ad-basketball #hackathon-ad-slider {
+    border: 5px solid #6d0502;
+    border-top: 0;
 }
 .hackathon-ad {
     height: 100%;
