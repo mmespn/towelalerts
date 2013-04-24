@@ -108,12 +108,12 @@
             var link = "<button class='adbutton' onclick='HackathonController.addPoint();return false;'>Click here to capture your Gamecast FanPoint</button>",
                 timerSecs = 7,
                 timer = "<p class='ad-timercontainer'>Time is running out to capture: <span class='timer'>" + timerSecs + "</span></p>";
-            adSlider.html("<div class='hackathon-ad'><img src=" + hImg + ' width=100>' + hText +  ' ' + link + " " + info + ' ' + timer + "</div>");
+            adSlider.html("<div class='hackathon-ad'><img src=" + hImg + ' width=100><p>' + hText +  '</p> ' + link + " <p>" + info + '</p> ' + timer + "</div>");
             // http://keith-wood.name/countdown.html#formats1
             adSlider.find('.timer').countdown({format:"{sn}", compact:true, until: new Date(new Date().getTime() + timerSecs*1000)});
             this.show();
 			this.cancelPendingHide();
-            this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, timerSecs*1000, this);
+            //this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, timerSecs*1000, this);
         },
 		renderGoalMet: function(rewardText) {
             adSlider.html("<div class='hackathon-ad'>Reward! " + rewardText + "</div>");

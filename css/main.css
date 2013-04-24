@@ -58,17 +58,19 @@
     background: #059bff;
 }
  
-.ad-timercontainer {
+.hackathon-ad .ad-timercontainer {
     position: absolute;
-    bottom: 25px;
-    right: 10px;
+    bottom: 0;
+    right: 0;
     width: 200px;
     font-size: 12px;
     text-align: right compact:true,;
+    margin: 0;
 }
  
 #hackathon-ad-slider {
-    height: 100px;
+    height: 125px;
+    text-align: left;
     position: absolute;
     top: 30px;
     background: #fff;
@@ -76,24 +78,32 @@
     z-index: 1003;
     display: none;
     clear: both;
-    padding: 0;
     width: 100%;
-
-}
-.hackathon-ad-basketball #hackathon-ad-slider {
+    box-sizing: border-box; -webkit-box-sizing: border-box;
     border: 5px solid #6d0502;
     border-top: 0;
+    padding: 10px 0;
+}
+.hackathon-ad-basketball #hackathon-ad-slider {
+    border-color: #6d0502;
 }
 .hackathon-ad {
     height: 100%;
     width: 90%;
     margin: 0 auto;
     position: relative;
-    padding: 10px 0;
     font-size: 16px;
+    padding: 0;
 }
 .hackathon-ad button { 
     display: block;
+}
+.hackathon-ad img {
+    float: left;
+    margin-right: 10px;
+}
+.hackathon-ad p {
+    margin: 5px 0;
 }
  
 #hackathon-admin-panel {
