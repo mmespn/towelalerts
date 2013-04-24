@@ -176,15 +176,18 @@
  .hackathon-ad-baseball {
     background: #eb8015; /* Old browsers */
 }
+
 .hackathon-ad-basketball {
-   background: #6d0502; /* Old browsers */
-background: -moz-linear-gradient(top,  #6d0502 0%, #730603 50%, #810601 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6d0502), color-stop(50%,#730603), color-stop(100%,#810601)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #6d0502 0%,#730603 50%,#810601 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #6d0502 0%,#730603 50%,#810601 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #6d0502 0%,#730603 50%,#810601 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #6d0502 0%,#730603 50%,#810601 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0502', endColorstr='#810601',GradientType=0 ); /* IE6-9 */
+    background: #6d0502; /* Old browsers */
+    background: -moz-linear-gradient(top,  #6d0502 0%, #730603 50%, #810601 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6d0502), color-stop(50%,#730603), color-stop(100%,#810601)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #6d0502 0%,#730603 50%,#810601 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #6d0502 0%,#730603 50%,#810601 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #6d0502 0%,#730603 50%,#810601 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #6d0502 0%,#730603 50%,#810601 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0502', endColorstr='#810601',GradientType=0 ); /* IE6-9 */
+    width: 98% !important;
+    top: -15% !important;
 }
 
 .hackathon-ad-basketball #hackathon-ad-title{
