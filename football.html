@@ -95,6 +95,14 @@
 </div>
 
 
+<div id="hackathon-admin-panel">
+	<div class='heading'>Admin Panel</div>
+    <ol>
+        <li><button class="button" onclick='HackathonController.triggerPlay();return false;'>Trigger Play</button></li>
+		<li><label class="inputcombo"><input type='text' class="textinput" value='0'/><button class="button" onclick='HackathonController.setPoints(jQuery(this).prev().val());return false;'>Set Points</button></label></li>
+    </ol>
+</div>
+
 <div id="main-controls" class="main-controls">
 	<div id="view-buttons">
 
@@ -106,7 +114,12 @@
 		
 	</div>	
 
-    <div id='hackathon-ad-container'>Hackathon</div>
+    <div id='hackathon-ad-container'>
+        <span id="hackathon-ad-title"></span> <span id="adPoints">0</span>
+        <div id="hackathon-ad-slider">
+            Ad
+        </div>
+    </div>
 </div>
 		
 		<div id="gc-story" class="vidHide"></div>
@@ -144,14 +157,15 @@
 </div>
 
 <div id="video-frame" class="vidHide">
-	<div id="videoContainer">
-	    <div id="video-buttons">
-        	<div id="note">Advertisement: Gamecast will continue in <span id="countdown">...</span><span id="skip"><a id="skip-link" href="#">Skip this ad &#187;</a></span></div>
+    <div id="videoContainer">
+        <div id="video-buttons">
+            <div id="note">Advertisement: Gamecast will continue in <span id="countdown">...</span><span id="skip"><a id="skip-link" href="#">Skip this ad &#187;</a></span></div>
         </div>
-		<div id="videoPlayer"></div>
-		<div id="closeButton"><img src="http://a.espncdn.com/i/gamecast/football/btn-close.gif" /></div>
-	</div>
+        <div id="videoPlayer"></div>
+        <div id="closeButton"><img src="http://a.espncdn.com/i/gamecast/football/btn-close.gif" /></div>
+    </div>
 </div>
+
 <div id="watch-frame" class="vidHide">
 	<div id="watch-espn"></div>
 </div>
