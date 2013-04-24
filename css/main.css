@@ -25,6 +25,38 @@
 #hackathon-ad-container.expanded .closebutton {
     display: block;
 }
+
+.adbutton {
+    border-top: 1px solid #9e9e9e;
+    background: #969696;
+    background: -webkit-gradient(linear, left top, left bottom, from(#c5c5c5), to(#969696));
+    background: -webkit-linear-gradient(top, #c5c5c5, #969696);
+    background: -moz-linear-gradient(top, #c5c5c5, #969696);
+    background: -ms-linear-gradient(top, #c5c5c5, #969696);
+    background: -o-linear-gradient(top, #c5c5c5, #969696);
+    padding: 5px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #424242;
+    font-size: 14px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.adbutton:hover {
+    border-top-color: #28597a;
+    background: #28597a;
+    color: #ccc;
+}
+.adbutton:active {
+    border-top-color: #059bff;
+    background: #059bff;
+}
  
 .ad-timercontainer {
     position: absolute;

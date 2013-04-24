@@ -99,7 +99,7 @@
 			}
 		},
         renderPlay: function(hText, hImg) {
-            var link = "<button onclick='HackathonController.addPoint();return false;'>Get points</button>",
+            var link = "<button class='adbutton' onclick='HackathonController.addPoint();return false;'>Click here to capture your Gamecast FanPoint</button>",
                 timerSecs = 7,
                 timer = "<p class='ad-timercontainer'>Time is running out to capture: <span class='timer'>" + timerSecs + "</span></p>";
             adSlider.html("<div class='hackathon-ad'>" + hText +  ' ' + link + " " + timer + "</div>");
