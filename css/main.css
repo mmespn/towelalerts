@@ -87,6 +87,10 @@
 .hackathon-ad-basketball #hackathon-ad-slider {
     border-color: #6d0502;
 }
+.hackathon-ad-baseball #hackathon-ad-slider {
+    border-color: #eb8015;
+}
+
 .hackathon-ad {
     height: 100%;
     width: 90%;
