@@ -147,3 +147,29 @@
     padding:3px;
     width:45px;
 }
+
+.hackathon-ad-basketball #adPoints{
+    background: #FFFFFF;
+    color: #1C7E4B;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    right: 1%;
+    width: 25px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    bottom: 8%;
+}
+
+ .hackathon-ad-basketball #adCurrentText{
+
+    color: #D3D3D3;
+    padding:9px 5px 0 0;
+    position: absolute;
+    right:7%;
+    font-size:10px;
+    font-weight: bold;
+ 
+}
+
