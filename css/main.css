@@ -28,9 +28,10 @@
  
 .ad-timercontainer {
     position: absolute;
-    bottom: 10px;
+    bottom: 25px;
     right: 10px;
     width: 200px;
+    font-size: 12px;
     text-align: right compact:true,;
 }
  
@@ -53,7 +54,14 @@
 }
 .hackathon-ad {
     height: 100%;
+    width: 90%;
+    margin: 0 auto;
     position: relative;
+    padding: 10px 0;
+    font-size: 16px;
+}
+.hackathon-ad button { 
+    display: block;
 }
  
 #hackathon-admin-panel {
