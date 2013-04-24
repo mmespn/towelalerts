@@ -116,7 +116,9 @@
             this.hideTimeout = setTimeout(function(obj) { obj.hide(); }, timerSecs*1000, this);
         },
 		renderGoalMet: function(rewardText) {
-            adSlider.html("<div class='hackathon-ad'>Congratulations, davidpean, you earned the reward - " + rewardText + "<br><button class='adbutton' onclick='return false;'>Click here to claim</button><br><div>Found <b>2</b> <a href=''>Locations nearby</a></div></div>");
+            adSlider.html("<div class='hackathon-ad'><img id='hackathon-qsrcode' src='images/qsrcode.png' width='120' /> Congratulations, davidpean, you earned the reward - " + rewardText 
+                + "<br><button class='adbutton' onclick='return false;'>Click here to claim</button><br>"
+                + "<div>Found <b>2</b> <a href=''>Locations nearby</a></div></div>");
 			this.cancelPendingHide();
             this.show();
 		},
