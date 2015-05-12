@@ -1,1 +1,1 @@
-![Welcome](http://cdn.uproxx.com/wp-content/uploads/2012/06/slater.gif)
+![Welcome](https://uproxx.files.wordpress.com/2012/06/slater.gif?w=650)
